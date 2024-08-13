@@ -27,6 +27,7 @@ import robotIcon from './icon--robot.svg';
 import echoIcon from './icon--echo.svg';
 import highpassIcon from './icon--highpass.svg';
 import lowpassIcon from './icon--lowpass.svg';
+import bandpassIcon from './icon--bandpass.svg';
 import reverseIcon from './icon--reverse.svg';
 import fadeOutIcon from './icon--fade-out.svg';
 import fadeInIcon from './icon--fade-in.svg';
@@ -374,6 +375,12 @@ const SoundEditor = props => (
                     title={"High Pass"}
                     onClick={props.onHighPass}
                 />
+                <IconButton
+                    className={styles.effectButton}
+                    img={bandpassIcon}
+                    title={"High Pass"}
+                    onClick={props.onBandPass}
+                />
             </div>
         </div>
         <div className={styles.infoRow}>
@@ -440,6 +447,7 @@ SoundEditor.propTypes = {
     onEcho: PropTypes.func.isRequired,
     onLowPass: PropTypes.func.isRequired,
     onHighPass: PropTypes.func.isRequired,
+    onBandPass: PropTypes.func.isRequired,
     onFadeIn: PropTypes.func.isRequired,
     onFadeOut: PropTypes.func.isRequired,
     onFaster: PropTypes.func.isRequired,
