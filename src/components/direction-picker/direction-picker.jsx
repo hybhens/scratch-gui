@@ -12,6 +12,7 @@ import Dial from './dial.jsx';
 import styles from './direction-picker.css';
 
 import allAroundIcon from './icon--all-around.svg';
+import turn180Icon from './icon--turn-180.svg';
 import leftRightIcon from './icon--left-right.svg';
 import upDownIcon from './icon--up-down.svg';
 import dontRotateIcon from './icon--dont-rotate.svg';
@@ -40,6 +41,11 @@ const messages = defineMessages({
         id: 'gui.directionPicker.rotationStyles.allAround',
         description: 'Button to change to the all around rotation style',
         defaultMessage: 'All Around'
+    },
+    allAround: {
+        id: 'gui.directionPicker.rotationStyles.turn180',
+        description: 'Button to change to the turn 180 rotation style',
+        defaultMessage: 'Turn 180'
     },
     lookAt: {
         id: 'gui.directionPicker.rotationStyles.lookAt',
@@ -87,6 +93,18 @@ const DirectionPicker = props => (
                             <img
                                 draggable={false}
                                 src={allAroundIcon}
+                            />
+                        </button>
+                        <button
+                            className={classNames(styles.iconButton, {
+                                [styles.active]: props.rotationStyle === RotationStyles.TURN_180
+                            })}
+                            title={props.intl.formatMessage(messages.turn180)}
+                            onClick={props.onClickTurn180}
+                        >
+                            <img
+                                draggable={false}
+                                src={turn180Icon}
                             />
                         </button>
                         <button
@@ -166,6 +184,7 @@ DirectionPicker.propTypes = {
     labelAbove: PropTypes.bool,
     onChangeDirection: PropTypes.func.isRequired,
     onClickAllAround: PropTypes.func.isRequired,
+    onClickTurn180: PropTypes.func.isRequired,
     onClickDontRotate: PropTypes.func.isRequired,
     onClickLeftRight: PropTypes.func.isRequired,
     onClickLookAt: PropTypes.func.isRequired,
